@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import FeedLoading from "./components/feed/FeedLoading";
+import Hero from "./components/hero/Hero";
+import Navbar from "./components/navbar/Navbar";
+
+const apiUrl = `http://127.0.0.1:8000/api/`;
 
 function App() {
+
+  const [appState, setAppState] = useState({
+		loading: true,
+		posts: null,
+	});
+
+	useEffect(() => {
+		setAppState({ ...appState, loading: true })
+		fetch(apiUrl)
+			.then((data) => data.json())
+			.then((posts) => {
+				setAppState({ loading: false, posts: posts });
+			});
+	}, [setAppState]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navbar />
+    <Hero />
+    <FeedLoading appState={appState} />
+    </>
   );
 }
 
