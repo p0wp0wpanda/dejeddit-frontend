@@ -4,7 +4,6 @@ import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
 
 const apiUrl = process.env.REACT_APP_API_URL
-console.log(`API URL: ${apiUrl}`)
 
 function App() {
 
