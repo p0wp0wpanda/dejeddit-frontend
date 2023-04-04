@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Card as MUICard, Button, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const Card = ({index, postContent, postMedia}) => {
   return (
@@ -24,7 +25,9 @@ const Card = ({index, postContent, postMedia}) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Read More</Button>
+              <Link to={`/posts/${postContent.id}`}>
+                <Button size="small">Read More</Button>
+              </Link>
             </CardActions>
         </MUICard>
         </Box>

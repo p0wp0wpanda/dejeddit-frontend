@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import FeedLoading from "./components/feed/FeedLoading";
 import Hero from "./components/hero/Hero";
 import Navbar from "./components/navbar/Navbar";
+import Post from "./components/post/Post";
+import { Routes, Route } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_API_URL
 
@@ -25,7 +27,10 @@ function App() {
     <>
     <Navbar />
     <Hero />
-    <FeedLoading appState={appState} />
+	<Routes>
+		<Route path="/" element={<FeedLoading appState={appState} />} />
+		<Route path="/posts/:postId" element={<Post appState={appState} />} />
+	</Routes>
     </>
   );
 }
