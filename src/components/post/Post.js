@@ -1,10 +1,20 @@
-import { Box, Button, Card, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom';
+import Error from '../error/Error';
 
 const Post = ({ appState }) => {
   const { postId } = useParams();
+
+  if(!appState.posts) {
+    return <Error />
+  }
+
   const post = appState.posts.find((post) => post.id == postId)
+
+  if(!post) {
+    return <Error />
+  }
 
   return (
     <Box p={3} sx={{
