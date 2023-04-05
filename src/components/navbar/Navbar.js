@@ -21,12 +21,12 @@ const Navbar = () => {
 
     const TitleBox = styled(Box)({
         display: "flex",
-        gap: 30,
+        gap: 3,
     })
 
     const SearchBox = styled(Box)({
         display: "flex",
-        gap: 5,
+        gap: 3,
     });
 
   return (
@@ -42,7 +42,7 @@ const Navbar = () => {
                 </SocialBox>
 
                 <TitleBox>
-                    <Typography sx={{ typography: { sm: 'h4', xs: 'h5' } }}>Title Text</Typography>
+                    <Typography sx={{ typography: { sm: 'h4', xs: 'h5' } }}>Djeddit</Typography>
                 </TitleBox>
                 
                 <SearchBox>
